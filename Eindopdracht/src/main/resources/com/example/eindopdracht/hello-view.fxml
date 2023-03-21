@@ -24,4 +24,5 @@
     <Label fx:id="sorteerAlgoritmes" text="sorteerAlgoritmes"/>
     <Button text="sortAlgoritme1" onAction="#sortAlgorithm1"/>
     <Button text="sortAlgoritme2" onAction="#sortAlgorithm2"/>
+    <Button fx:id ="test" text="Upload dataset" onAction="#selectFile"/>
 </VBox>
