@@ -11,6 +11,17 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Label fx:id="DataStructuren" text="DataStructuren"/>
+    <Button text="BinaryTree" onAction="#createBinaryTree"/>
+    <Button text="Stack" onAction="#createStack"/>
+    <Button text="LinkedList" onAction="#createLinkedList"/>
+
+
+    <Label fx:id="ZoekAlgoritmes" text="ZoekAlgoritmes"/>
+    <Button text="searchAlgoritme1" onAction="#searchAlgorithm1"/>
+    <Button text="searchAlgoritme2" onAction="#searchAlgorithm2"/>
+
+    <Label fx:id="sorteerAlgoritmes" text="sorteerAlgoritmes"/>
+    <Button text="sortAlgoritme1" onAction="#sortAlgorithm1"/>
+    <Button text="sortAlgoritme2" onAction="#sortAlgorithm2"/>
 </VBox>
