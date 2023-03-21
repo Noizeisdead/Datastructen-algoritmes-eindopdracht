@@ -5,16 +5,26 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.example.eindopdracht.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
     </padding>
+    <Button fx:id ="test" text="Upload dataset" onAction="#selectFile"/>
 
-    <Label fx:id="DataStructuren" text="DataStructuren"/>
-    <Button text="BinaryTree" onAction="#createBinaryTree"/>
-    <Button text="Stack" onAction="#createStack"/>
-    <Button text="LinkedList" onAction="#createLinkedList"/>
+    <Label fx:id="datastructures" text="Convert to datastructure:"/>
+    <ChoiceBox fx:id="choiceBox" onAction="#toDatastructure">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Binary Tree" />
+                <String fx:value="Stack"/>
+                <String fx:value="Linked List" />
+            </FXCollections>
+        </items>
+    </ChoiceBox>
 
 
     <Label fx:id="ZoekAlgoritmes" text="ZoekAlgoritmes"/>
@@ -24,5 +34,5 @@
     <Label fx:id="sorteerAlgoritmes" text="sorteerAlgoritmes"/>
     <Button text="sortAlgoritme1" onAction="#sortAlgorithm1"/>
     <Button text="sortAlgoritme2" onAction="#sortAlgorithm2"/>
-    <Button fx:id ="test" text="Upload dataset" onAction="#selectFile"/>
+
 </VBox>
