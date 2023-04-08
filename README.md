@@ -11,9 +11,9 @@
 - LinkedList
 
 # Zoekalgoritmes
-- 
-- 
+- Binary Search
+-  Liniar Search
 
 # Sorteeralgoritmes
--
--
+- BubbleSort
+- StackSort
