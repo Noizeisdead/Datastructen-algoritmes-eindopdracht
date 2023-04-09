@@ -1,17 +1,15 @@
 package Datastructures;
 
-import util.Node;
-
 public class Stack {
-    private Object[] array; // Container for Stack elements
+    private Integer[] array; // Container for Stack elements
     private int top; // Index of top element
     // Constructor for creating stack of given capacity
     public Stack(int capacity) {
-        array = new Object[capacity];
+        array = new Integer[capacity];
         top = -1;
     }
     // Method for adding a new element to top of stack
-    public void push(Object obj) throws Exception {
+    public void push(int obj) throws Exception {
         if(size() == array.length) {
             throw new Exception("Stack is full!");
         }
@@ -19,17 +17,17 @@ public class Stack {
         array[top] = obj; // Add new element
     }
     // Method for removing element from top of stack
-    public Object pop() throws Exception {
+    public int pop() throws Exception {
         if(isEmpty()) {
             throw new Exception("Stack is empty!");
         }
-        Object toReturn = array[top]; // Element to return
+        int toReturn = array[top]; // Element to return
         array[top] = null; // Replace it with null
         top--; // Update top to point to new top
         return toReturn;
     }
     // Method for getting top element without removing it
-    public Object top() throws Exception {
+    public int peek() throws Exception {
         if(isEmpty()) {
             throw new Exception("Stack is empty!");
         }
@@ -41,4 +39,29 @@ public class Stack {
     public boolean isEmpty() {
         return (top == -1);
     }
+
+
+    public Stack sort() throws Exception {
+        Stack tmpStack = new Stack(this.size()); //create temp stack
+        while(!this.isEmpty()) //while the stack isn't empty
+        {
+            // pop out the first element
+            int tmp = this.pop();
+
+            // while a temporary stack is not empty and
+            // top of stack is greater than temp.
+            while(!tmpStack.isEmpty() && tmpStack.peek() > tmp)
+            {
+                // pop from a temporary stack and
+                // push it to the input stack.
+                this.push(tmpStack.pop());
+            }
+
+            // push temp in temporary of stack
+            tmpStack.push(tmp);
+        }
+        return tmpStack;
+    }
+
+
 }
