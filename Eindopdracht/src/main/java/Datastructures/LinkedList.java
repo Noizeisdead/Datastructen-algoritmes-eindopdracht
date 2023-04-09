@@ -37,11 +37,11 @@ public class LinkedList {
     }
 
     public String toString(){
-        String retStr = "Contents:\n";
+        String retStr = "";
 
         Node current = head;
         while(current != null){
-            retStr += current.getData() + "\n";
+            retStr += current.getData() + " ";
             current = current.getNext();
 
         }
