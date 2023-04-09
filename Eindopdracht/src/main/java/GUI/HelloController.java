@@ -1,6 +1,7 @@
 package GUI;
 
 import Datastructures.BinaryTree;
+import Datastructures.LinkedList;
 import Datastructures.Stack;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -34,6 +35,7 @@ public class HelloController {
     private ArrayList<Integer> arrayList;
     private BinaryTree bt;
     private Stack stack;
+    private LinkedList linkedList;
 
     public HelloController(){
         this.primaryStage = new Stage();
@@ -80,11 +82,15 @@ public class HelloController {
     @FXML
     public void createLinkedList(){
         System.out.println("Linked list");
-
+        LinkedList linkedList1 = new LinkedList();
         if (!(this.arrayList == null)) {
             for (int element : arrayList) {
                 //add elements to LinkedList
+                linkedList1.insert(element);
             }
+            String datastructureString = arrayListToString();
+            nameDatastructure.setText("LinkedList");
+            datastructure.setText(datastructureString);
         }else{
             System.out.println("add file please.");
         }
@@ -132,7 +138,19 @@ public class HelloController {
     }
     @FXML
     public void sortBubble(){
+        StringBuilder listString = new StringBuilder();
+        this.linkedList.bubbleSort();
 
+        for(int i = 0; i <= sortedStack.size(); i++){
+            int x = this.stack.printStack(sortedStack);
+            System.out.println(x);
+            listString.append(x).append("\t");
+        }
+
+        String stringOutput = listString.toString();;
+        bigONot.setText("O(N^2)");
+        output.setText(stringOutput);
+        nameAlgorithm.setText("Stack sort");
     }
 
     @FXML
