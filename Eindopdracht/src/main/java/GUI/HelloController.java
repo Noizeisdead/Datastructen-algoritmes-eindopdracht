@@ -119,13 +119,9 @@ public class HelloController {
         StringBuilder listString = new StringBuilder();
         Stack sortedStack = this.stack.sort();
 
-        for(int i = 0; i <= sortedStack.size(); i++){
-            int x = this.stack.printStack(sortedStack);
-            System.out.println(x);
-            listString.append(x).append("\t");
-        }
 
-        String stringOutput = listString.toString();;
+
+        String stringOutput = sortedStack.stackToString();
         bigONot.setText("O(N^2)");
         output.setText(stringOutput);
         nameAlgorithm.setText("Stack sort");
