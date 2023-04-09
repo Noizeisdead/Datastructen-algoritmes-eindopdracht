@@ -1,5 +1,7 @@
 package Datastructures;
 
+import util.Node;
+
 public class LinkedList {
 
     Node head; // head of list
@@ -17,8 +19,37 @@ public class LinkedList {
             data = d;
             next = null;
         }
+        public int getData()
+        {
+            return data;
+        }
+
+        public void setData(int d)
+        {
+            data = d;
+        }
+
+        public Node getNext()
+        {
+            return next;
+        }
+    }
+    public LinkedList() {
+        this.head = null;
     }
 
+    public String toString(){
+        String retStr = "Contents:\n";
+
+        Node current = head;
+        while(current != null){
+            retStr += current.getData() + "\n";
+            current = current.getNext();
+
+        }
+
+        return retStr;
+    }
     // Method to insert a new node
     public void insert(int data) {
         // Create a new node with given data

@@ -37,7 +37,6 @@ public class BinaryTree
     // Search node in binary search tree
     public Object search(int searchedValue) // O(N)
     {
-        int place = 0;
         Node current = root;
         while(current.getValue() != searchedValue) // N * O(1)
         {
@@ -47,14 +46,14 @@ public class BinaryTree
             }else {
                 // Move to the right if searched value is >=
                 current = current.getRight();
-                place++;
             }
             if(current == null) {
                 return null;
             }
         }
-        return place;
+        return current;
     }
+
 
 
     // For traversing in order
