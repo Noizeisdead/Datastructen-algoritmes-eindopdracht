@@ -11,10 +11,11 @@ public class Node {
         right = null;
         left = null;
     }
-    public void displayData()
-    {
+
+    public void displayData() {
         System.out.print(value + " ");
     }
+
     //getters and setters
     public int getValue() {
         return value;

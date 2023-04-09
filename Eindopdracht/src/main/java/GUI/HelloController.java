@@ -123,11 +123,11 @@ public class HelloController {
             nameAlgorithm.setText("Linear search");
         }
     }
+
     @FXML
     public void sortStack() throws Exception {
         StringBuilder listString = new StringBuilder();
         Stack sortedStack = this.stack.sort();
-
 
 
         String stringOutput = sortedStack.stackToString();

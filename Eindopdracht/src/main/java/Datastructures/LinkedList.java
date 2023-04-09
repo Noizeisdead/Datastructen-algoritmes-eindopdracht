@@ -17,30 +17,29 @@ public class LinkedList {
             data = d;
             next = null;
         }
-        public int getData()
-        {
+
+        public int getData() {
             return data;
         }
 
-        public void setData(int d)
-        {
+        public void setData(int d) {
             data = d;
         }
 
-        public Node getNext()
-        {
+        public Node getNext() {
             return next;
         }
     }
+
     public LinkedList() {
         this.head = null;
     }
 
-    public String toString(){
+    public String toString() {
         String retStr = "";
 
         Node current = head;
-        while(current != null){
+        while (current != null) {
             retStr += current.getData() + " ";
             current = current.getNext();
 
@@ -48,6 +47,7 @@ public class LinkedList {
 
         return retStr;
     }
+
     // Method to insert a new node
     public void insert(int data) {
         // Create a new node with given data
