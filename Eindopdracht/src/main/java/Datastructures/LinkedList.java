@@ -116,5 +116,17 @@ public class LinkedList {
         System.out.println();
     }
 
+    public int search(int target) {
+        Node current = this.head;
+        int index = 0;
+        while (current != null) {
+            if (current.data == target) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
 
 }
