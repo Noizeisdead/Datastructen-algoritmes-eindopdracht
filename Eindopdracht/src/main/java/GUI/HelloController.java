@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 public class HelloController {
     public Label datastructures;
-    public Label zoekAlgoritmes;
+    public static Label zoekAlgoritmes;
     public Label sorteerAlgoritmes;
     public Button test;
     public ChoiceBox choiceBox;
@@ -24,6 +25,12 @@ public class HelloController {
     public BufferedReader reader;
     public TextField searchValue;
 
+    public Text error;
+    public Text nameDatastructure;
+    public Text datastructure;
+    public Text bigONot;
+    public Text nameAlgorithm;
+    public Text output;
     private ArrayList<Integer> arrayList;
     private BinaryTree bt;
     private Stack stack;
@@ -39,13 +46,18 @@ public class HelloController {
     public void createBinaryTree(){
         System.out.println("Binary tree");
         this.bt = new BinaryTree();
-        if (!this.arrayList.isEmpty()) {
+        if (!(this.arrayList == null)) {
+
             for (int element : arrayList) {
                 this.bt.insert(element);
             }
             //stack.printStack(this.stack);
-            bt.inOrder(bt.getRoot());
+            bt.preOrder(bt.getRoot());
+            String datastructureString = arrayListToString();
+            nameDatastructure.setText("BinaryTree");
+            datastructure.setText(datastructureString);
         }else{
+            error.setText("Add file please.");
             System.out.println("add file please.");
         }
 
@@ -54,7 +66,7 @@ public class HelloController {
     public void createStack() throws Exception {
         System.out.println("Stack");
         this.stack = new Stack(20);
-        if (!this.arrayList.isEmpty()) {
+        if (!(this.arrayList == null)) {
             for (int element : arrayList) {
                 this.stack.push(element);
             }
@@ -66,21 +78,47 @@ public class HelloController {
     @FXML
     public void createLinkedList(){
         System.out.println("Linked list");
+
+        if (!(this.arrayList == null)) {
+            for (int element : arrayList) {
+                //add elements to LinkedList
+            }
+        }else{
+            System.out.println("add file please.");
+        }
     }
 
     @FXML
     public void searchBinary(){
-        System.out.println(bt.search(Integer.parseInt(searchValue.getText())));
-        System.out.println("O(N)");
+        if(searchValue.getText().isEmpty()){
+            error.setText("Please input a number to search");
+        }else {
+            System.out.println(bt.search(Integer.parseInt(searchValue.getText())));
+            String stringOutput = String.valueOf(bt.search(Integer.parseInt(searchValue.getText())));
+            bigONot.setText("O(N)");
+            output.setText(stringOutput);
+            nameAlgorithm.setText("Binary search");
+        }
     }
     @FXML
     public void searchLinear(){
-
+        if(searchValue.getText().isEmpty()){
+            error.setText("Please input a number to search");
+        }else {
+            //do search
+            String stringOutput = "Output of algorithm";
+            bigONot.setText("Algorithm speed");
+            output.setText(stringOutput);
+            nameAlgorithm.setText("Linear search");
+        }
     }
     @FXML
     public void sortStack() throws Exception {
+
+
         System.out.println("O(N^2)");
         this.stack.printStack(this.stack.sort());
+
 
     }
     @FXML
@@ -124,5 +162,14 @@ public class HelloController {
         while ((line = reader.readLine()) != null)
 
             System.out.println(line);
+    }
+
+    private String arrayListToString(){
+        StringBuilder listString = new StringBuilder();
+        for (int s : this.arrayList)
+        {
+            listString.append(s).append("\t");
+        }
+        return listString.toString();
     }
 }

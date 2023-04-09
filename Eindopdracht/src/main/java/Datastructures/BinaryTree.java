@@ -35,23 +35,25 @@ public class BinaryTree
         return node;
     }
     // Search node in binary search tree
-    public Node search(int searchedValue) // O(N)
+    public Object search(int searchedValue) // O(N)
     {
+        int place = 0;
         Node current = root;
         while(current.getValue() != searchedValue) // N * O(1)
         {
-            if(searchedValue < current.getValue())
+            if (searchedValue < current.getValue()){
                 // Move to the left if searched value is less
                 current = current.getLeft();
-            else
+            }else {
                 // Move to the right if searched value is >=
                 current = current.getRight();
-            if(current == null)
-            {
+                place++;
+            }
+            if(current == null) {
                 return null;
             }
         }
-        return current;
+        return place;
     }
 
 
