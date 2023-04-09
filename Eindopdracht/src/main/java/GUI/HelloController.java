@@ -117,7 +117,7 @@ public class HelloController {
             error.setText("Please input a number to search");
         } else {
             //do search
-            String stringOutput = "Output of algorithm";
+            String stringOutput = String.valueOf(linkedList.search(Integer.parseInt(searchValue.getText())));
             bigONot.setText("Algorithm speed");
             output.setText(stringOutput);
             nameAlgorithm.setText("Linear search");
