@@ -82,23 +82,4 @@ public class BinaryTree
             node.displayData();
         }
     }
-    public static void main(String[] args)
-    {
-        BinaryTree bst = new BinaryTree();
-        bst.insert(34);
-        bst.insert(56);
-        bst.insert(12);
-        bst.insert(89);
-        bst.insert(67);
-        bst.insert(90);
-        System.out.println("Inorder traversal of binary tree");
-        bst.inOrder(bst.root);
-        System.out.println();
-        System.out.println("Preorder traversal of binary tree");
-        bst.preOrder(bst.root);
-        System.out.println();
-        System.out.println("Postorder traversal of binary tree");
-        bst.postOrder(bst.root);
-        System.out.println();
-    }
 }
