@@ -84,15 +84,15 @@ public class HelloController {
     @FXML
     public void createLinkedList() {
         System.out.println("Linked list");
-        LinkedList linkedList1 = new LinkedList();
+        this.linkedList = new LinkedList();
         if (!(this.arrayList == null)) {
             for (int element : arrayList) {
                 //add elements to LinkedList
-                linkedList1.insert(element);
+                linkedList.insert(element);
             }
             String datastructureString = arrayListToString();
-            nameDatastructure.setText("LinkedList");
-            datastructure.setText(datastructureString);
+            this.nameDatastructure.setText("LinkedList");
+            this.datastructure.setText(datastructureString);
         } else {
             System.out.println("add file please.");
         }
@@ -147,17 +147,11 @@ public class HelloController {
         StringBuilder listString = new StringBuilder();
         this.linkedList.bubbleSort();
 
-        for (int i = 0; i <= sortedStack.size(); i++) {
-            int x = this.stack.printStack(sortedStack);
-            System.out.println(x);
-            listString.append(x).append("\t");
-        }
-
         String stringOutput = listString.toString();
-        ;
+
         bigONot.setText("O(N^2)");
-        output.setText(stringOutput);
-        nameAlgorithm.setText("Stack sort");
+        output.setText(linkedList.toString());
+        nameAlgorithm.setText("Bubble sort");
     }
 
     @FXML

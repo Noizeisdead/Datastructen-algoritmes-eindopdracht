@@ -1,7 +1,5 @@
 package Datastructures;
 
-import util.Node;
-
 public class LinkedList {
 
     Node head; // head of list
