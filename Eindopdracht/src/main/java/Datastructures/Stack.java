@@ -17,7 +17,7 @@ public class Stack {
         array[top] = obj; // Add new element
     }
     // Method for removing element from top of stack
-    public int pop() throws Exception {
+    public int pop() throws Exception { //O(1)
         if(isEmpty()) {
             throw new Exception("Stack is empty!");
         }
@@ -42,15 +42,15 @@ public class Stack {
 
 
     public Stack sort() throws Exception {
-        Stack tmpStack = new Stack(this.size()); //create temp stack
-        while(!this.isEmpty()) //while the stack isn't empty
+        Stack tmpStack = new Stack(this.size()); //create temp stack  0(1)
+        while(!this.isEmpty()) //while the stack isn't empty N * (O(1) + (N * O(1)) + O(1)) +O(1)
         {
             // pop out the first element
-            int tmp = this.pop();
+            int tmp = this.pop(); //O(1)
 
             // while a temporary stack is not empty and
             // top of stack is greater than temp.
-            while(!tmpStack.isEmpty() && tmpStack.peek() > tmp)
+            while(!tmpStack.isEmpty() && tmpStack.peek() > tmp) //N * O(1)
             {
                 // pop from a temporary stack and
                 // push it to the input stack.
@@ -63,5 +63,25 @@ public class Stack {
         return tmpStack;
     }
 
+    public void printStack(Stack s) throws Exception {
+        // If stack is empty then return
+        if (s.isEmpty()) {
+            return;
+        }
+        int x = s.peek();
+
+        // Pop the top element of the stack
+        s.pop();
+
+        // Recursively call the function PrintStack
+        printStack(s);
+
+        // Print the stack element starting
+        // from the bottom
+        System.out.print(x + " ");
+        // Push the same element onto the stack
+        // to preserve the order
+        s.push(x);
+    }
 
 }

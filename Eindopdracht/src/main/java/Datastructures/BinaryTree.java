@@ -4,7 +4,7 @@ public class BinaryTree
 {
     // first node
     private Node root;
-    BinaryTree()
+    public BinaryTree()
     {
         root = null;
     }
@@ -35,10 +35,10 @@ public class BinaryTree
         return node;
     }
     // Search node in binary search tree
-    public Node find(int searchedValue)
+    public Node search(int searchedValue) // O(N)
     {
         Node current = root;
-        while(current.getValue() != searchedValue)
+        while(current.getValue() != searchedValue) // N * O(1)
         {
             if(searchedValue < current.getValue())
                 // Move to the left if searched value is less
@@ -53,6 +53,8 @@ public class BinaryTree
         }
         return current;
     }
+
+
     // For traversing in order
     public void inOrder(Node node)
     {
@@ -81,5 +83,9 @@ public class BinaryTree
             postOrder(node.getRight());
             node.displayData();
         }
+    }
+
+    public Node getRoot(){
+        return this.root;
     }
 }
