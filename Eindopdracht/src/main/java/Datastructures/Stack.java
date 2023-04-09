@@ -1,7 +1,5 @@
 package Datastructures;
 
-import java.util.Arrays;
-
 public class Stack {
     private Integer[] array; // Container for Stack elements
     private int top; // Index of top element
@@ -65,11 +63,13 @@ public class Stack {
         return tmpStack;
     }
 
-    public String printStack(Stack s) throws Exception {
+    public int printStack(Stack s) throws Exception {
+
         // If stack is empty then return
         if (s.isEmpty()) {
-            return null;
+            return 0;
         }
+
         int x = s.peek();
 
         // Pop the top element of the stack
@@ -84,8 +84,7 @@ public class Stack {
         // Push the same element onto the stack
         // to preserve the order
         s.push(x);
-        return null;
+        return x;
     }
-
 
 }

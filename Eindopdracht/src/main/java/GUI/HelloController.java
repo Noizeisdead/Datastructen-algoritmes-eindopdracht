@@ -116,8 +116,16 @@ public class HelloController {
     }
     @FXML
     public void sortStack() throws Exception {
+        StringBuilder listString = new StringBuilder();
         Stack sortedStack = this.stack.sort();
-        String stringOutput = this.stack.printStack(this.stack.sort());
+
+        for(int i = 0; i <= sortedStack.size(); i++){
+            int x = this.stack.printStack(sortedStack);
+            System.out.println(x);
+            listString.append(x).append("\t");
+        }
+
+        String stringOutput = listString.toString();;
         bigONot.setText("O(N^2)");
         output.setText(stringOutput);
         nameAlgorithm.setText("Stack sort");
