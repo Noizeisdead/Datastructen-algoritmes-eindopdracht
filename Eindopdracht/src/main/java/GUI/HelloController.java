@@ -70,7 +70,9 @@ public class HelloController {
             for (int element : arrayList) {
                 this.stack.push(element);
             }
-            stack.printStack(this.stack);
+            String datastructureString = arrayListToString();
+            nameDatastructure.setText("Stack");
+            datastructure.setText(datastructureString);
         }else{
             System.out.println("add file please.");
         }
@@ -114,12 +116,11 @@ public class HelloController {
     }
     @FXML
     public void sortStack() throws Exception {
-
-
-        System.out.println("O(N^2)");
-        this.stack.printStack(this.stack.sort());
-
-
+        Stack sortedStack = this.stack.sort();
+        String stringOutput = this.stack.printStack(this.stack.sort());
+        bigONot.setText("O(N^2)");
+        output.setText(stringOutput);
+        nameAlgorithm.setText("Stack sort");
     }
     @FXML
     public void sortBubble(){
