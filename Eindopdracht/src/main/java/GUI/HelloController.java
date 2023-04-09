@@ -37,7 +37,7 @@ public class HelloController {
     private Stack stack;
     private LinkedList linkedList;
 
-    public HelloController(){
+    public HelloController() {
         this.primaryStage = new Stage();
         this.fileChooser = new FileChooser();
 
@@ -45,7 +45,7 @@ public class HelloController {
 
 
     @FXML
-    public void createBinaryTree(){
+    public void createBinaryTree() {
         System.out.println("Binary tree");
         this.bt = new BinaryTree();
         if (!(this.arrayList == null)) {
@@ -58,12 +58,13 @@ public class HelloController {
             String datastructureString = arrayListToString();
             nameDatastructure.setText("BinaryTree");
             datastructure.setText(datastructureString);
-        }else{
+        } else {
             error.setText("Add file please.");
             System.out.println("add file please.");
         }
 
     }
+
     @FXML
     public void createStack() throws Exception {
         System.out.println("Stack");
@@ -75,12 +76,13 @@ public class HelloController {
             String datastructureString = arrayListToString();
             nameDatastructure.setText("Stack");
             datastructure.setText(datastructureString);
-        }else{
+        } else {
             System.out.println("add file please.");
         }
     }
+
     @FXML
-    public void createLinkedList(){
+    public void createLinkedList() {
         System.out.println("Linked list");
         LinkedList linkedList1 = new LinkedList();
         if (!(this.arrayList == null)) {
@@ -91,16 +93,16 @@ public class HelloController {
             String datastructureString = arrayListToString();
             nameDatastructure.setText("LinkedList");
             datastructure.setText(datastructureString);
-        }else{
+        } else {
             System.out.println("add file please.");
         }
     }
 
     @FXML
-    public void searchBinary(){
-        if(searchValue.getText().isEmpty()){
+    public void searchBinary() {
+        if (searchValue.getText().isEmpty()) {
             error.setText("Please input a number to search");
-        }else {
+        } else {
             System.out.println(bt.search(Integer.parseInt(searchValue.getText())));
             String stringOutput = String.valueOf(bt.search(Integer.parseInt(searchValue.getText())));
             bigONot.setText("O(N)");
@@ -108,11 +110,12 @@ public class HelloController {
             nameAlgorithm.setText("Binary search");
         }
     }
+
     @FXML
-    public void searchLinear(){
-        if(searchValue.getText().isEmpty()){
+    public void searchLinear() {
+        if (searchValue.getText().isEmpty()) {
             error.setText("Please input a number to search");
-        }else {
+        } else {
             //do search
             String stringOutput = "Output of algorithm";
             bigONot.setText("Algorithm speed");
@@ -120,34 +123,38 @@ public class HelloController {
             nameAlgorithm.setText("Linear search");
         }
     }
+
     @FXML
     public void sortStack() throws Exception {
         StringBuilder listString = new StringBuilder();
         Stack sortedStack = this.stack.sort();
 
-        for(int i = 0; i <= sortedStack.size(); i++){
+        for (int i = 0; i <= sortedStack.size(); i++) {
             int x = this.stack.printStack(sortedStack);
             System.out.println(x);
             listString.append(x).append("\t");
         }
 
-        String stringOutput = listString.toString();;
+        String stringOutput = listString.toString();
+        ;
         bigONot.setText("O(N^2)");
         output.setText(stringOutput);
         nameAlgorithm.setText("Stack sort");
     }
+
     @FXML
-    public void sortBubble(){
+    public void sortBubble() {
         StringBuilder listString = new StringBuilder();
         this.linkedList.bubbleSort();
 
-        for(int i = 0; i <= sortedStack.size(); i++){
+        for (int i = 0; i <= sortedStack.size(); i++) {
             int x = this.stack.printStack(sortedStack);
             System.out.println(x);
             listString.append(x).append("\t");
         }
 
-        String stringOutput = listString.toString();;
+        String stringOutput = listString.toString();
+        ;
         bigONot.setText("O(N^2)");
         output.setText(stringOutput);
         nameAlgorithm.setText("Stack sort");
@@ -157,7 +164,7 @@ public class HelloController {
     public void selectFile() throws IOException {
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
         this.arrayList = new ArrayList<>();
-        if(selectedFile != null){
+        if (selectedFile != null) {
             this.reader = new BufferedReader(new FileReader(new File(selectedFile.toURI())));
 
             String line;
@@ -170,7 +177,7 @@ public class HelloController {
 
     public void toDatastructure() throws Exception {
         String value = (String) choiceBox.getValue();
-        switch (value){
+        switch (value) {
             case "Stack":
                 createStack();
                 break;
@@ -191,10 +198,9 @@ public class HelloController {
             System.out.println(line);
     }
 
-    private String arrayListToString(){
+    private String arrayListToString() {
         StringBuilder listString = new StringBuilder();
-        for (int s : this.arrayList)
-        {
+        for (int s : this.arrayList) {
             listString.append(s).append("\t");
         }
         return listString.toString();
