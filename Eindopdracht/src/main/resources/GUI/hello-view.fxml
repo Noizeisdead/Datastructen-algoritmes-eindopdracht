@@ -9,6 +9,7 @@
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Text?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="GUI.HelloController">
     <padding>
@@ -36,4 +37,10 @@
     <Button text="sortStack" onAction="#sortStack"/>
     <Button text="sortBubble" onAction="#sortBubble"/>
 
+    <Text fx:id="nameDatastructure"></Text>
+    <Text fx:id="datastructure"></Text>
+    <Text fx:id="bigONot"></Text>
+    <Text fx:id="nameAlgorithm"></Text>
+    <Text fx:id="output"></Text>
+    <Text fx:id="error"></Text>
 </VBox>
